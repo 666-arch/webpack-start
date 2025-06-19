@@ -33,7 +33,7 @@ module.exports = {
         rules: [ //这里就是你需要去匹配什么样的loader
             {
                 test: /\.css$/i, //通过正则去匹配所有以 css 结尾的文件 （css预处理器同理）
-                use: ["style-loader", "css-loader"], //使用css相关的loader，这些loader只在编译时参与
+                use: ["style-loader", "css-loader"], //识别在转换时使用哪些相关的loader，这些loader只在webpack编译时参与
             },
             {
                 test: /\.(png|svg|jpeg|jpg|gif)$/i, //webpack有原生支持图片的处理器，无需另外添加loader
