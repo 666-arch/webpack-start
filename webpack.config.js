@@ -1,6 +1,6 @@
 const path = require('path')
 const htmlWebpackPlugin = require('html-webpack-plugin')
-const tersetPlugin = require('terser-webpack-plugin')
+const terserPlugin = require('terser-webpack-plugin')
 module.exports = {
     mode: 'development', //默认值 production
     devtool: 'inline-source-map', //方便查看打包后的源代码
@@ -12,8 +12,11 @@ module.exports = {
     optimization: {
         minimize: true, //指定是否需要压缩
         minimizer: [ //指定用什么工具来压缩源代码
-            new tersetPlugin()
+            new terserPlugin()
         ]
+    },
+    devServer: { //这是一个webpack内置开发服务器，允许更新代码自动热更新打包程序（需要在packagejson中配置scripts）
+        static: './dist' //指定更新的目录
     },
     plugins: [
         //它是一个构造函数，可以传递一些参数
