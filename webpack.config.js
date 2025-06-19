@@ -1,5 +1,6 @@
 const path = require('path')
 const htmlWebpackPlugin = require('html-webpack-plugin')
+const tersetPlugin = require('terser-webpack-plugin')
 module.exports = {
     mode: 'development', //默认值 production
     devtool: 'inline-source-map', //方便查看打包后的源代码
@@ -7,6 +8,12 @@ module.exports = {
     output: {
         filename: 'dist.js', //指定输出的打包目录名称
         path: path.resolve(__dirname, 'dist') //resolve可以指定多级目录，指定最终打包到dist目录下
+    },
+    optimization: {
+        minimize: true, //指定是否需要压缩
+        minimizer: [ //指定用什么工具来压缩源代码
+            new tersetPlugin()
+        ]
     },
     plugins: [
         //它是一个构造函数，可以传递一些参数
@@ -33,7 +40,7 @@ module.exports = {
                         presets: ['@babel/preset-env']
                     }
                 }
-            }
+            },
         ]
     }
 }
