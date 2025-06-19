@@ -12,6 +12,6 @@ blogs.forEach(blog=>{
 })
 document.body.appendChild(ul)
 
-const image = document.createElement('img')
-image.src = testImg
-document.body.prepend(image)
+// const image = document.createElement('img')
+// image.src = testImg
+// document.body.prepend(image)

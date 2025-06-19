@@ -9,6 +9,11 @@ module.exports = {
         filename: 'dist.js', //指定输出的打包目录名称
         path: path.resolve(__dirname, 'dist') //resolve可以指定多级目录，指定最终打包到dist目录下
     },
+    resolve: {
+        alias: {
+            "@": path.resolve(__dirname, 'src') //在项目多级引用时指定替换的相对路径目录
+        }
+    },
     optimization: {
         minimize: true, //指定是否需要压缩
         minimizer: [ //指定用什么工具来压缩源代码
