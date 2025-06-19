@@ -1,4 +1,5 @@
 const path = require('path')
+const htmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
     mode: 'development', //默认值 production
     entry: './src/index.js', //指定打包执行流程入口文件从何开始
@@ -6,6 +7,12 @@ module.exports = {
         filename: 'dist.js', //指定输出的打包目录名称
         path: path.resolve(__dirname, 'dist') //resolve可以指定多级目录，指定最终打包到dist目录下
     },
+    plugins: [
+        //它是一个构造函数，可以传递一些参数
+        new htmlWebpackPlugin({
+            title: '博客列表', 
+        })
+    ],
     module: {
         rules: [ //这里就是你需要去匹配什么样的loader
             {
